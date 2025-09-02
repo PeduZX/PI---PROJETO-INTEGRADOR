@@ -1,100 +1,81 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      transition: 0.5s;
-      background-color: #522a80;
-    }
+<html lang="pt-br">
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 85vw;
-      height: 8vw;
-      background-color: white;
-      border-radius: 5px;
-      margin: 20px auto;
-    }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HOME</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+</head>
 
-    .logo {
-      width: 8vw;
-      height: 8vw;
-      margin-left: 10px;
-    }
-    i {
-      font-size: 1.5vw;
-      margin-right: 2vw;
-      cursor: pointer;
-      background-color: white;
-    }
-    main {
-      width: 85vw;
-      height: 80vh;
-      background-color: #3e006a;
-      border-radius: 5px;
-      margin: 0 auto;
-      display: flex;
-      align-items: start;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-    .container-img {
-      background-color: #3e006a;
-    }
-    #imgBack {
-      width: 30vw;
-      height: 55vh;
-      border-radius: 20px;
-      margin-right: 4vw;
-      margin-top: 4vh;
-    }
-    .title-main {
-      display: flex;
-      color: white;
-      font-size: 2vw;
-      background-color: #3e006a;
-      display: inline;
-      margin-top: 10vh;
-      margin-left: 30px;
-      background-color: #3e006a;
-      font-family: Arial, Helvetica, sans-serif;
-      font-weight: bold;
-    }
-    
-  </style>
-  <body>
-    <header>
-      <img class="logo" src="/logo/logo.png" alt="logo" />
-      <i class="ri-menu-line"></i>
-    </header>
-    <main>
-        <h1 class="title-main">Entre em nosso clube de estudo!</h1>
-      <div class="container-main">
-        <aside class="container-img">
-          <img
-            id="imgBack"
-            src="imagem back HOME.png"
-            alt="imagem de fundo HOME de pessoas estudando"
-          />
-        </aside>
+<body>
+  <header>
+    <img class="logo" src="/logo/logo.png" alt="logo" />
+    <div id="div-menu-line" class="div-menu-line">
+      <i id="barra-nav" class="ri-menu-line"></i>
+      <div id="div-close" class="div-close">
+        <i id="close-nav" class="ri-close-line"></i>
       </div>
-    </main>
-  </body>
+    </div>
+    <nav class="nav-header">
+      <ul id="ul-nav">
+        <li class="li-nav"><a href="testeflex.html">HOME</a></li>
+        <li class="li-nav"><a href="sobre.html">SOBRE NÓS</a></li>
+        <li class="li-nav"><a href="cursos.html">CURSOS</a></li>
+        <li class="li-nav"><a href="contato.html">CONTATO</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="row-main">
+      <div id="aside-message">
+        <h1 class="title-main">
+          Entre em nosso clube <br />
+          de estudo!
+        </h1>
+        <button id="button-cadastrar">CADASTRE-SE</button>
+      </div>
+
+      <aside class="container-img">
+        <img id="imgBack" src="imagem back HOME.png" alt="imagem de fundo HOME de pessoas estudando" />
+      </aside>
+    </div>
+    <section class="main-cards">
+      <div id="div-cards-container">
+        <div id="div-cards">
+          <div class="card">
+            <div class="platform-icon">🤝</div>
+            <h3 class="text-card">Plataforma Colaborativa</h3>
+            <p class="text-card">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, quidem.</p>
+            <button class="saiba-btn">Saiba mais!</button>
+          </div>
+
+          <div class="card">
+            <div class="platform-icon">🏆</div>
+            <h3 class="text-card">Plataforma Colaborativa</h3>
+            <p class="text-card">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, quidem.</p>
+            <button class="saiba-btn">Saiba mais!</button>
+          </div>
+
+          <div class="card">
+            <div class="platform-icon">👥</div>
+            <h3 class="text-card">Plataforma Colaborativa</h3>
+            <p class="text-card">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, quidem.</p>
+            <button class="saiba-btn">Saiba mais!</button>
+          </div>
+
+          <div class="card">
+            <div class="platform-icon">🎯</div>
+            <h3 class="text-card">Plataforma Colaborativa</h3>
+            <p class="text-card">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, quidem.</p>
+            <button class="saiba-btn">Saiba mais!</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+
 </html>
