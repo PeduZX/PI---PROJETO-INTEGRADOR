@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.5s;
+  background-color: #522a80;
+  font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
+
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90vw;
+  height: 8vw;
+  background-color: white;
+  border-radius: 5px;
+  margin: 20px auto;
+}
+
+.nav-header {
+  display: flex;
+  background-color: #d9d9d9;
+  flex-direction: column;
+  width: 22vw;
+  height: 80vw;
+  z-index: 500;
+  display: none;
+}
+.logo {
+  width: 8vw;
+  height: 8vw;
+  margin-left: 10px;
+}
+
+.ri-menu-line {
+  font-size: 1.5vw;
+  margin-right: 2vw;
+  cursor: pointer;
+  background-color: white;
+}
+
+.ri-menu-line:hover {
+  background-color: lightgrey;
+  border-radius: 5px;
+}
+
+.div-menu-line {
+  background-color: white;
+}
+#div-close {
+  display: none;
+  z-index: 9999;
+  position: absolute;
+  margin-left: 37rem;
+  background-color: #d9d9d9;
+  margin-bottom: 20vw;
+}
+#close-nav {
+  font-size: 30px;
+  cursor: pointer;
+  background-color: #d9d9d9;
+}
+main {
+  width: 90vw;
+  height: 100vw;
+  background-color: #3e006a;
+  border-radius: 5px;
+  margin: 0 auto;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 100px;
+}
