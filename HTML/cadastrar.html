@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CADASTRE-SE</title>
+  <link rel="icon" type="image/png" href="/logo/logo.png" />
+  <link rel="stylesheet" href="/CSS/cadastrar.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <img class="logo" src="/logo/logo.png" alt="logo" />
+    <div id="div-menu-line" class="div-menu-line">
+      <i id="barra-nav" class="ri-menu-line"></i>
+    </div>
+    <div id="div-close" class="div-close">
+      <i id="close-nav" class="ri-close-line"></i>
+    </div>
+
+    <nav id="nav-header" class="nav-header">
+      <ul id="ul-nav">
+        <li class="li-nav"><a href="index.html">HOME</a></li>
+        <li class="li-nav"><a href="sobre.html">SOBRE PROJETO</a></li>
+        <li class="li-nav"><a href="chatConversa.html">CHAT</a></li>
+        <li class="li-nav"><a href="contato.html">CONTATO</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div id="container">
+      <div id="container-form">
+        <form>
+          <h2 style="text-align: center;">Cadastrar-se</h2>
+          <label for="">Nome:</label>
+          <input id="input-nome" type="text" placeholder="Nome">
+          <label for="">Email:</label>
+          <input id="input-email" type="text" placeholder="Email">
+          <label for="">Data De Nascimento:</label>
+          <input id="input-data" type="text" placeholder="dd/mm/aaaa">
+          <label for="">Senha:</label>
+          <input id="input-senha" type="text" placeholder="Ex: 1234">
+          <label for="">Ser Mentorado em:</label>
+          <select name="select" id="select-area">
+            <option value="">Ciencias Humanas</option>
+            <option value="">Ciencias Da natureza</option>
+            <option value="">Linguagens</option>
+            <option value="">Exatas</option>
+            <option value="">Só quero ajudar</option>
+          </select>
+          <label for="">Mentorar em:</label>
+          <select name="select" id="select-area">
+            <option value="">Ciencias Humanas</option>
+            <option value="">Ciencias Da natureza</option>
+            <option value="">Linguagens</option>
+            <option value="">Exatas</option>
+            <option value="">Só quero ser ajudado</option>
+          </select>
+          <button id="btn-cadastrar" type="submit">Cadastrar</button>
+          <a id="a-login" href="login.html">Já tenho conta</a>
+
+        </form>
+      </div>
+    </div>
+
+    </div>
+  </main>
+
+  <script src="/JS_NAVBAR/script.js"></script>
+</body>
+
+</html>
