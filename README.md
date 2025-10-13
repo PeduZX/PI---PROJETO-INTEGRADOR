@@ -24,11 +24,18 @@ CREATE TABLE mentorar (
 );
 
 
-CREATE TABLE IF NOT EXISTS `mydb`.`mentorado` (
-  `id_area_mentorado` INT  PRIMARY KEY AUTO_INCREMENT,
-  `nome_area_mentorado` VARCHAR(100) NOT NULL,
-  `users_id` INT NOT NULL,
+CREATE TABLE mentorado (
+  id_area_mentorado INT  PRIMARY KEY AUTO_INCREMENT,
+  nome_area_mentorado VARCHAR(100) NOT NULL,
+  users_id INT NOT NULL,
     FOREIGN KEY (`users_id`) REFERENCES users (id)
 );
 
 SELECT * FROM users
+
+<img width="500" height="45" alt="image" src="https://github.com/user-attachments/assets/68c28440-aca2-429a-90da-c87dd13f6b27" />
+
+
+
+
+
