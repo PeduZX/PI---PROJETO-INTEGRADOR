@@ -18,7 +18,7 @@ CREATE TABLE users (
 
 CREATE TABLE mentorar (
   id_area_mentorar INT  PRIMARY KEY AUTO_INCREMENT,
-  nome_area_mentora VARCHAR(100) NOT NULL,
+  nome_area_mentorar VARCHAR(100) NOT NULL,
   users_id INT NOT NULL,
 	FOREIGN KEY (`users_id`) REFERENCES users (id)
 );
@@ -31,9 +31,18 @@ CREATE TABLE mentorado (
     FOREIGN KEY (`users_id`) REFERENCES users (id)
 );
 
-SELECT * FROM users
+SELECT * FROM users;
+SELECT * FROM mentorar;
+SELECT * FROM mentorado;
+
+
+
+
+
+
 
 <img width="500" height="45" alt="image" src="https://github.com/user-attachments/assets/68c28440-aca2-429a-90da-c87dd13f6b27" />
+
 
 
 
