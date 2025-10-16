@@ -1,7 +1,7 @@
-const express = require('express');
-const bcrypt = require('bcrypt');
+const express = require("express");
+const bcrypt = require("bcrypt");
 const db = require("./db_config");
-const cors = require('cors');
+const cors = require("cors");
 
 const app = express();
 app.use(cors()); // Habilita CORS para o navegador
@@ -10,16 +10,39 @@ app.use(express.json());
 // ========================
 // Rota de cadastro
 // ========================
-app.post('/register', (req, res) => {
-  const { nome, email, dataNasc, senha } = req.body;
+app.post("/register", (req, res) => {
+  const {nome, email, dataNasc, senha, mentorado, mentorar } = req.body;
 
   bcrypt.hash(senha, 10, (err, hash) => {
-    if (err) return res.status(500).json({ error: 'Erro ao criptografar senha' });
+    if (err)
+      return res.status(500).json({ error: "Erro ao criptografar senha" });
 
-    const sql = 'INSERT INTO users (nome, email, data_nasc, senha) VALUES (?, ?, ?, ?)';
-    db.query(sql, [nome, email, hash], (err) => {
-      if (err) return res.status(500).json({ error: 'Erro ao cadastrar usuário' });
-      res.status(201).json({ message: 'Usuário cadastrado com sucesso!' });
+
+    // Insere os dados do usuário na tabela 'users'
+    const sqlUser = "INSERT INTO users (nome, email, data_nasc, senha) VALUES (?, ?, ?, ?)";
+    db.query(sqlUser, [nome, email, dataNasc, hash], (err,) => {
+      if (err)
+        return res.status(500).json({ error: "Erro ao cadastrar usuário" });
+      res.status(201).json({ message: "Usuário cadastrado com sucesso!" });
+      
+
+      
+      // Insere os dados na tabela 'mentorar'
+      const sqlMentorar = "INSERT INTO mentorar (users_id, nome_area_mentorar) VALUES (?, ?)";
+       // Insere os dados na tabela 'mentorado'
+      const sqlMentorado = "INSERT INTO mentorado (users_id, nome_area_mentorado) VALUES (?, ?)";
+
+      db.query(sqlMentorar, [userId, mentorar], (err) => {
+        if (err)
+          return res.status(500).json({ error: "Erro ao cadastrar área de mentorar" });
+       
+        db.query(sqlMentorado, [userId, mentorado], (err) => {
+          if (err)
+            return res.status(500).json({ error: "Erro ao cadastrar área de mentorado" });
+
+          res.status(201).json({ message: "Áreas cadastradas com sucesso!" });
+        });
+      });
     });
   });
 });
@@ -27,21 +50,23 @@ app.post('/register', (req, res) => {
 // ========================
 // Rota de login
 // ========================
-app.post('/login', (req, res) => {
+app.post("/login", (req, res) => {
   const { email, senha } = req.body;
 
-  const sql = 'SELECT * FROM users WHERE email = ?';
+  const sql = "SELECT * FROM users WHERE email = ?";
   db.query(sql, [email], (err, results) => {
-    if (err) return res.status(500).json({ error: 'Erro no login' });
-    if (results.length === 0) return res.status(401).json({ error: 'Usuário não encontrado' });
+    if (err) return res.status(500).json({ error: "Erro no login" });
+    if (results.length === 0)
+      return res.status(401).json({ error: "Usuário não encontrado" });
 
     const user = results[0];
 
     bcrypt.compare(senha, user.senha, (err, match) => {
-      if (err) return res.status(500).json({ error: 'Erro ao verificar senha' });
-      if (!match) return res.status(401).json({ error: 'Senha incorreta' });
+      if (err)
+        return res.status(500).json({ error: "Erro ao verificar senha" });
+      if (!match) return res.status(401).json({ error: "Senha incorreta" });
 
-      res.json({ message: 'Login realizado com sucesso!' });
+      res.json({ message: "Login realizado com sucesso!" });
     });
   });
 });

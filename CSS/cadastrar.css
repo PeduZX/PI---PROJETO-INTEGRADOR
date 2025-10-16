@@ -180,9 +180,8 @@ input:hover{
  
  
 select,option{
-  background-color: #d9d9d9;
   border-radius: 50px;
-  background: #D9D9D9;
+  background-color: #D9D9D9;
   box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.30);
   width: 564px;
   height: 47px;
@@ -191,14 +190,15 @@ select,option{
   font-weight:lighter;
   border: none;
   transition: 0.5s;
+
  
  
   }
   select,option::placeholder{
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 700;
-    color: #7C7C7C;
+  font-weight: 100;
+
   }
   select:focus,option:focus{
     transition: 0.5s;
@@ -253,4 +253,44 @@ label{
 }
 #a-login:hover{
   color: #3e006a;
+}
+
+footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d9d9d9;
+  width: auto;
+  height: 4vw;
+  border-radius: 60px  60px 0 0;
+}
+
+#links-footer{
+display: flex;
+gap: 15px;
+margin: 4vw;
+color: #000;
+}
+.a-footer{
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px solid #000;
+}
+.a-footer:hover{
+  color: grey;
+  border-bottom: 2px solid grey;
+}
+
+#div-icon-footer{
+display: flex;
+justify-content: center;
+width: 10vw;
+gap: 15px;
+}
+#icons-footer{
+  font-size: 25px;
+  cursor: pointer;
+
 }
