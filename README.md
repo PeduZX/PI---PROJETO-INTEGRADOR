@@ -1,6 +1,7 @@
 # PI---PROJETO-INTEGRADOR
 
-<img width="861" height="276" alt="image" src="https://github.com/user-attachments/assets/b44aa7d8-9a76-4a08-9e2b-c45d5b8ae2fa" />
+<img width="823" height="536" alt="image" src="https://github.com/user-attachments/assets/5e30a577-54ec-4f96-baec-a8f7a53b94d6" />
+
 
 CREATE DATABASE bancoPI;
 USE bancoPI;
@@ -42,6 +43,7 @@ SELECT * FROM mentorado;
 
 
 <img width="500" height="45" alt="image" src="https://github.com/user-attachments/assets/68c28440-aca2-429a-90da-c87dd13f6b27" />
+
 
 
 
