@@ -2,24 +2,27 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CHAT</title>
-  <link rel="stylesheet" href="/CSS/chatConversa.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PERFIL</title>
+  <link rel="stylesheet" href="/CSS/perfil.css" />
   <link rel="icon" type="image/png" href="/logo/logo.png" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
 </head>
 
 <body>
-    <header>
+  <header>
     <img class="logo" src="/logo/logo.png" alt="logo" />
     <div id="div-menu-line" class="div-menu-line">
+      <div class="menu-login">
+        <a id="a-login-header" href="login.html">Faça Login</a>
+      </div>
       <i id="barra-nav" class="ri-menu-line"></i>
-      </div>
-      <div id="div-close" class="div-close">
-        <i id="close-nav" class="ri-close-line"></i>
-      </div>
-    
+    </div>
+    <div id="div-close" class="div-close">
+      <i id="close-nav" class="ri-close-line"></i>
+    </div>
+
     <nav id="nav-header" class="nav-header">
       <ul id="ul-nav">
           <li class="li-nav"><a href="index.html"><i id="i-nav" class="ri-home-2-line"></i>HOME</a></li>
@@ -31,19 +34,29 @@
     </nav>
   </header>
   <main>
-    <div id="container">
-        <span class="span-input">
-          <span id="submit-document">
-            <input type="file" id="input-add-document" />
-              <span id="span-btn-add">
-                <button onclick="btnCliclick()" id="btn-add-document"><img class="img-add" src="/Icons/add-fill.svg" alt=""></button>
-              </span>
-          </span>
-            <input type="text" name="input-submit" id="input-submit" > 
-            <button id="btn-submit"><img class="img-submit" src="/Icons/arrow-right-line.svg" alt="btn-submit"></button>
-        </span>
+    <div id="aside-left">
+      <div id="aside-left-top">
+        <img src="/Icons/imagem_user.png" alt="img user" class="img-user" />
+        <p id="p-email">email@gmail.com</p>
       </div>
+      <form id="form-aside-left" action="">
+        <label for="">Nome:</label>
+        <input type="text" name="" id="">
+        <label for="">Senha:</label>
+        <input type="password" name="" id="">
+        <label for="">Email:</label>
+        <input type="text" name="" id="">
+        <button id="btn-editar" >Atualizar Perfil</button>
+      </form>
     </div>
+    <div id="aside-right">
+      <p id="msg-progress">Seu Progresso!</p>
+      <div class="card-aside-right">
+        <div class="cards">
+          <img src="/Icones_cards/3.png" alt="">
+          Pontos:
+        </div>
+      </div>
     </div>
   </main>
   <footer>
@@ -61,7 +74,7 @@
       <i id="icons-footer" class="ri-mail-line"></i>
     </div>
   </footer>
-    <script src="/JS_NAVBAR/script.js"></script>
-    <script src="/menu-chatConversa/addDocument.js"></script>
+  <script src="/JS_NAVBAR/script.js"></script>
 </body>
+
 </html>

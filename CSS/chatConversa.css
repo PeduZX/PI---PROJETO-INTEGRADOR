@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Story+Script&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -47,6 +49,11 @@
     z-index: 9999;
     margin-top: 5vw;
   }
+
+  #i-nav{
+margin: 10px;
+}
+
   
   #ul-nav li {
     font-size: 18px;
@@ -258,41 +265,50 @@
   }
   
   footer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #d9d9d9;
-    width: auto;
-    height: 4vw;
-    border-radius: 60px  60px 0 0;
-  }
-  
-  #links-footer{
   display: flex;
-  gap: 15px;
-  margin: 4vw;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d9d9d9;
+  width: auto;
+  height: 4vw;
+  border-radius: 60px  60px 0 0;
+
+}
+
+#links-footer{
+display: flex;
+gap: 15px;
+margin: 4vw;
+color: #000;
+}
+.a-footer{
   color: #000;
-  }
-  .a-footer{
-    color: #000;
-    font-weight: bold;
-    text-decoration: none;
-    border-bottom: 2px solid #000;
-  }
-  .a-footer:hover{
-    color: grey;
-    border-bottom: 2px solid grey;
-  }
-  
-  #div-icon-footer{
-  display: flex;
-  justify-content: center;
-  width: 10vw;
-  gap: 15px;
-  }
-  #icons-footer{
-    font-size: 25px;
-    cursor: pointer;
-  
-  }
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px solid #000;
+  font-family: "Story Script", sans-serif;
+  font-size: 20px;
+
+}
+#footer-copy{
+  font-family: "Story Script", sans-serif;
+  font-size: 20px;
+}
+.a-footer:hover{
+  color: grey;
+  border-bottom: 2px solid grey;
+}
+
+#div-icon-footer{
+display: flex;
+justify-content: center;
+width: 10vw;
+gap: 15px;
+}
+#icons-footer{
+  font-size: 25px;
+  cursor: pointer;
+
+
+}
