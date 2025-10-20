@@ -1,6 +1,7 @@
 # PI---PROJETO-INTEGRADOR
 
-<img width="823" height="536" alt="image" src="https://github.com/user-attachments/assets/5e30a577-54ec-4f96-baec-a8f7a53b94d6" />
+<img width="846" height="536" alt="image" src="https://github.com/user-attachments/assets/9eb2f746-deba-4fcc-b056-aaf909c12752" />
+
 
 
 CREATE DATABASE bancoPI;
@@ -52,6 +53,7 @@ DROP DATABASE bancoPI;
 
 
 <img width="500" height="45" alt="image" src="https://github.com/user-attachments/assets/68c28440-aca2-429a-90da-c87dd13f6b27" />
+
 
 
 
