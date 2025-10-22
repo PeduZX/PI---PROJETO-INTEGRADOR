@@ -66,6 +66,7 @@ header {
   cursor: pointer;
   font-weight: 500;
   font-size: 20px;
+  font-family: 'montserrat', sans-serif;
 }
 #a-login-header:hover {
   animation: a-login 2s infinite linear; /* aumentarBotao --> nome do KEYFRAME */
@@ -171,7 +172,9 @@ main {
   align-items: start;
   flex-direction: column;
   justify-content: space-between;
+  margin-bottom: 2vw;
   gap: 100px;
+  
 }
 
 .row-main {
@@ -278,6 +281,11 @@ main {
 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 5vw;
+  height: 5vw;
 }
 
 .text-card {
