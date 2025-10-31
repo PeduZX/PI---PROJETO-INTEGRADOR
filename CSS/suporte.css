@@ -166,15 +166,23 @@ margin: 10px;
 main {
   display: flex;
   flex-direction: column;
+  background-color: #3e006a;
+  border-radius: 5px;
+  margin: 0 auto;
+  width: 90vw;
+  height: 45vw;
+  margin-bottom: 2vw;
+  gap: 100px;
 
 }
 
 .main-title{
+  margin-top: 2vw;
   font-family: "Montserrat", sans-serif;
   font-size: 45px;
   font-weight: bold;
   color: #c0c0c0;
-  margin-left: 5vw;
+  margin-left: 5vw; 
 
 }
 
@@ -194,6 +202,11 @@ input{
   margin: 20px;
   font-size: 16px;
   margin-left: 5vw;
+}
+input:focus{
+border: #000;
+transform: scale(1.1);
+box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
 input::placeholder{
