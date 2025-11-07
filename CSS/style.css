@@ -248,7 +248,7 @@ main {
   justify-content: space-evenly;
   gap: 50px;
 }
-
+/* ===== CARDS ===== */
 .main-cards {
   background-color: #3e006a;
   height: 25vw;
