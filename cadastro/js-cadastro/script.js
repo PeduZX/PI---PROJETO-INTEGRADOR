@@ -30,6 +30,36 @@ async function cadastrar() {
   }
 }
 
+try {
+  const response = await fetch('http://localhost:3000/registerMentorar', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({nomeAreaMentorar})
+  });
+
+  const data = await response.json();
+  document.getElementById('msg').innerText = data.message || data.error;
+
+} catch (err) {
+  console.error("Erro no fetch:", err);
+  document.getElementById('msg').innerText = 'Erro no cadastro.';
+}
+try {
+  const response = await fetch('http://localhost:3000/registerMentorado', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({nomeAreaMentorado})
+  });
+
+  const data = await response.json();
+  document.getElementById('msg').innerText = data.message || data.error;
+
+} catch (err) {
+  console.error("Erro no fetch:", err);
+  document.getElementById('msg').innerText = 'Erro no cadastro.';
+}
+
+
 
 // Função para login de usuário
 async function login() {
