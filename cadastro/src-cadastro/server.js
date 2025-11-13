@@ -1,26 +1,38 @@
-const express = require("express");
-const bcrypt = require("bcrypt");
+const express = require('express');
+const bcrypt = require('bcrypt');
 const db = require("./db_config");
-const cors = require("cors");
+const cors = require('cors');
+const path = require('path');
 
 const app = express();
-app.use(cors()); // Habilita CORS para o navegador
-app.use(express.json());
+app.use(cors());
+app.use(express.json()); 
+
+// Middlewares
+app.use(express.static('public'));
+app.use('/uploads', express.static('uploads'));
+app.use(cors());
 
 
 // ========================
 // Rota de cadastro
 // ========================
 app.post('/register',(req, res) => {
-  const {nome, email, dataNasc, senha } = req.body;
+  const { nome, email, data_nasc,senha} = req.body;
 
   bcrypt.hash(senha, 10, (err, hash) => {
-    if (err) return res.status(500).json({ error: 'Erro ao criptografar senha' });
+    if (err){
+       res.status(500).json({ error: 'Erro ao criptografar senha' });
+       return;
+    }
 
-    const sql = "INSERT INTO users (nome, email, data_nasc, senha) VALUES (?, ?, ?, ?)";
-    db.query(sql, [nome, email, hash], (err) => {
-      if (err) return res.status(500).json({ error: 'Erro ao cadastrar usuário' });
-      res.status(201).json({ message: 'Usuário cadastrado com sucesso!' });
+    const sql = 'INSERT INTO users (nome, email, data_nasc,senha) VALUES (?, ?, ?, ?)';
+    db.query(sql, [nome, email, data_nasc ,hash], (err) => {
+      if (err) {
+        res.status(500).json({ error: 'Erro ao cadastrar usuário' });
+        return;
+        }   
+        res.status(201).json({ message: 'Usuário cadastrado com sucesso!' });
     });
   });
 });
@@ -56,11 +68,9 @@ app.post("/login", (req, res) => {
 app.post("/registerMentorar", (req, res) => {
   const nomeAreaMentorar = req.body.nome_area_mentorar;
 
-  if (!arquivo) {
-    return res.status(400).json({ success: false, message: "Preencha todos os campos" });
-  }
 
   const params = [
+    req.body.id,
     req.body.nomeAreaMentorar
   ];
 
@@ -83,11 +93,9 @@ app.post("/registerMentorar", (req, res) => {
 app.post("/registerMentorado", (req, res) => {
   const nomeAreaMentorado = req.body.nome_area_mentorado;
 
-  if (!arquivo) {
-    return res.status(400).json({ success: false, message: "Preencha todos os campos" });
-  }
 
   const params = [
+    req.body.id,
     req.body.nomeAreaMentorado
   ];
 

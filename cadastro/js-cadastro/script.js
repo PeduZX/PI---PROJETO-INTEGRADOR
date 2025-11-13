@@ -1,5 +1,7 @@
 // Captura o clique do botão
-document.getElementById('btn-cadastrar').addEventListener('click', cadastrar);
+document.getElementById('btn-cadastrar').addEventListener('click', cadastrar);{
+
+
 
 // Função para cadastrar usuário
 async function cadastrar() {
@@ -7,18 +9,16 @@ async function cadastrar() {
   const email = document.getElementById('input-email').value.trim();
   const dataNasc = document.getElementById('input-data').value;
   const senha = document.getElementById('input-senha').value.trim(); //importante tirar os espaços das senhas
-  const mentorado = document.getElementById('select-mentorado').value;
-  const mentorar = document.getElementById('select-mentorar').value;
 
 
-  //console.log("Data enviada:", dataNasc);
+
 
 
   try {
     const response = await fetch('http://localhost:3000/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ nome, email, dataNasc, senha, mentorado, mentorar })
+      body: JSON.stringify({ nome, email, dataNasc, senha})
     });
 
     const data = await response.json();
@@ -31,10 +31,12 @@ async function cadastrar() {
 }
 
 try {
+  const mentorar = document.getElementById('select-mentorar').value;
+  
   const response = await fetch('http://localhost:3000/registerMentorar', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({nomeAreaMentorar})
+    body: JSON.stringify({mentorar})
   });
 
   const data = await response.json();
@@ -45,10 +47,11 @@ try {
   document.getElementById('msg').innerText = 'Erro no cadastro.';
 }
 try {
+  const mentorado = document.getElementById('select-mentorado').value;
   const response = await fetch('http://localhost:3000/registerMentorado', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({nomeAreaMentorado})
+    body: JSON.stringify({mentorado})
   });
 
   const data = await response.json();
@@ -81,3 +84,5 @@ async function login() {
     document.getElementById('msg').innerText = 'Erro no login';
   }
 }
+
+};
