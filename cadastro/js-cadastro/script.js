@@ -10,16 +10,16 @@ async function cadastrar() {
   const nomeAreaMentorado = document.getElementById('select-mentorado').value;
 
 
+//Tudo abaixo é só para teste no console OBS.: Se quiser pode apagar depois, para testar descomentando as linhas
+// console.log('Nome:', nome);
+// console.log('Email:', email);
+// console.log('Data de Nascimento:', dataNasc); 
+// console.log('Senha:', senha);
+// console.log('Mentorado em:', nomeAreaMentorado);
+// console.log('Mentorar em:', nomeAreaMentorar);
 
-console.log('Nome:', nome);
-console.log('Email:', email);
-console.log('Data de Nascimento:', dataNasc);
-console.log('Senha:', senha);
-console.log('Mentorado em:', nomeAreaMentorado);
-console.log('Mentorar em:', nomeAreaMentorar);
 
-
-
+// registra usuário na tabela users
   try {
     const response = await fetch('http://localhost:3000/register', {
       method: 'POST',
@@ -35,7 +35,7 @@ console.log('Mentorar em:', nomeAreaMentorar);
     document.getElementById('msg').innerText = 'Erro no cadastro.';
   }
 
-
+// registra a disciplina na tabela mentorar
 try {
  
   
@@ -52,6 +52,8 @@ try {
   console.error("Erro no fetch:", err);
   document.getElementById('msg').innerText = 'Erro no cadastro.';
 }
+
+// registra a disciplina na tabela mentorado
 try {
   
   const response = await fetch('http://localhost:3000/registerMentorado', {
@@ -73,8 +75,8 @@ try {
 // Função para login de usuário
 async function login() {
 
-  const email = document.getElementById('email').value;
-  const senha = document.getElementById('senha').value;
+const email = document.getElementById('input-email').value.trim();
+const senha = document.getElementById('input-senha').value.trim();
 
   try {
     const response = await fetch('http://localhost:3000/login', {
@@ -85,8 +87,11 @@ async function login() {
 
     const data = await response.json();
     alert(data.message)
-    document.getElementById('msg').innerText = data.message || data.error;  
+    document.getElementById('msg').innerText = data.message || data.error; 
+    document.getElementById('msg').style.color = 'green';
+    document.getElementById('msg').style.fontSize = '22px';
   } catch (err) {
     document.getElementById('msg').innerText = 'Erro no login';
+    
   }
 }

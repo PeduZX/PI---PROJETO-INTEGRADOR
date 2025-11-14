@@ -37,11 +37,12 @@
         <h2 style="text-align: center;">Login</h2>
         <form>
           <label for="">Email:</label>
-          <input type="text" placeholder="Email">
+          <input id="input-email" type="text" placeholder="Email">
           <label for="">Senha:</label>
-          <input type="text" placeholder="Ex: 1234">
-          <button id="btn-cadastrar" type="submit">Login</button>
+          <input  id="input-senha" type="password" placeholder="Ex: 1234">
+          <button onclick="login()" id="btn-cadastrar" type="button">Login</button>
           <a id="a-login" href="cadastrar.html">Não Tenho Conta</a>
+          <p style="text-align: center;" id="msg"></p>
        
         </form>
       </div>
@@ -65,5 +66,6 @@
     </div>
   </footer>
     <script src="/JS_NAVBAR/script.js"></script>
+    <script src="/cadastro/js-cadastro/script.js"></script>
 </body>
 </html>

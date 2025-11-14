@@ -43,7 +43,7 @@ app.post('/register',(req, res) => {
 app.post("/registerMentorado", (req, res) => {
   const {nomeAreaMentorado} = req.body;
 
-    console.log(nomeAreaMentorado);
+    // console.log(nomeAreaMentorado); só para teste
 
   const query = `
     INSERT INTO mentorado (nomeAreaMentorado) VALUES (?)`;
@@ -54,7 +54,7 @@ app.post("/registerMentorado", (req, res) => {
       return res.status(400).json({ success: false, message: "Erro ao salvar no banco", data: err });
     }
 
-    res.status(201).json({ success: true, message: "Carro cadastrado com sucesso!", data: results });
+    res.status(201).json({ success: true, message: "Usuario cadastrado com sucesso!", data: results });
   });
 });
 
@@ -62,21 +62,20 @@ app.post("/registerMentorado", (req, res) => {
 // Rota de cadastro tabela mentorar
 // ========================
 app.post("/registerMentorar", (req, res) => {
-  console.log(nomeAreaMentorar);
-  const params = [
-    req.body.nomeAreaMentorar
-    ];
+  const {nomeAreaMentorar} = req.body;
+ 
+  //console.log(nomeAreaMentorar); só para teste
 
   const query = `
     INSERT INTO mentorar (nomeAreaMentorar) VALUES (?)`;
 
-  db.query(query, params, (err, results) => {
+  db.query(query, [nomeAreaMentorar], (err, results) => {
     if (err) {
       console.error(err);
       return res.status(400).json({ success: false, message: "Erro ao salvar no banco", data: err });
     }
 
-    res.status(201).json({ success: true, message: "Carro cadastrado com sucesso!", data: results });
+    res.status(201).json({ success: true, message: "Usuario cadastrado com sucesso!", data: results });
   });
 });
 
@@ -100,6 +99,7 @@ app.post("/login", (req, res) => {
       if (!match) return res.status(401).json({ error: "Senha incorreta" });
 
       res.json({ message: "Login realizado com sucesso!" });
+
     });
   });
 });
