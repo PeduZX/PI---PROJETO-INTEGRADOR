@@ -10,7 +10,6 @@ app.use(express.json());
 
 // Middlewares
 app.use(express.static('public'));
-app.use('/uploads', express.static('uploads'));
 app.use(cors());
 
 
@@ -18,7 +17,7 @@ app.use(cors());
 // Rota de cadastro
 // ========================
 app.post('/register',(req, res) => {
-  const { nome, email, data_nasc,senha} = req.body;
+  const { nome, email, dataNasc,senha} = req.body;
 
   bcrypt.hash(senha, 10, (err, hash) => {
     if (err){
@@ -27,13 +26,57 @@ app.post('/register',(req, res) => {
     }
 
     const sql = 'INSERT INTO users (nome, email, data_nasc,senha) VALUES (?, ?, ?, ?)';
-    db.query(sql, [nome, email, data_nasc ,hash], (err) => {
+    db.query(sql, [nome, email, dataNasc ,hash], (err) => {
       if (err) {
         res.status(500).json({ error: 'Erro ao cadastrar usuário' });
         return;
         }   
         res.status(201).json({ message: 'Usuário cadastrado com sucesso!' });
     });
+  });
+});
+
+
+// ========================
+// Rota de cadastro tabela mentorado
+// ========================
+app.post("/registerMentorado", (req, res) => {
+  const {nomeAreaMentorado} = req.body;
+
+    console.log(nomeAreaMentorado);
+
+  const query = `
+    INSERT INTO mentorado (nomeAreaMentorado) VALUES (?)`;
+
+  db.query(query, [nomeAreaMentorado], (err, results) => {
+    if (err) {
+      console.error(err);
+      return res.status(400).json({ success: false, message: "Erro ao salvar no banco", data: err });
+    }
+
+    res.status(201).json({ success: true, message: "Carro cadastrado com sucesso!", data: results });
+  });
+});
+
+// ========================
+// Rota de cadastro tabela mentorar
+// ========================
+app.post("/registerMentorar", (req, res) => {
+  console.log(nomeAreaMentorar);
+  const params = [
+    req.body.nomeAreaMentorar
+    ];
+
+  const query = `
+    INSERT INTO mentorar (nomeAreaMentorar) VALUES (?)`;
+
+  db.query(query, params, (err, results) => {
+    if (err) {
+      console.error(err);
+      return res.status(400).json({ success: false, message: "Erro ao salvar no banco", data: err });
+    }
+
+    res.status(201).json({ success: true, message: "Carro cadastrado com sucesso!", data: results });
   });
 });
 
@@ -62,55 +105,7 @@ app.post("/login", (req, res) => {
 });
 
 
-// ========================
-// Rota de cadastro tabela mentorar
-// ========================
-app.post("/registerMentorar", (req, res) => {
-  const nomeAreaMentorar = req.body.nome_area_mentorar;
 
-
-  const params = [
-    req.body.id,
-    req.body.nomeAreaMentorar
-  ];
-
-  const query = `
-    INSERT INTO mentorar (nome_area_mentorar) VALUES (?);`;
-
-  db.query(query, params, (err, results) => {
-    if (err) {
-      console.error(err);
-      return res.status(400).json({ success: false, message: "Erro ao salvar no banco", data: err });
-    }
-
-    res.status(201).json({ success: true, message: "Carro cadastrado com sucesso!", data: results });
-  });
-});
-
-// ========================
-// Rota de cadastro tabela mentorado
-// ========================
-app.post("/registerMentorado", (req, res) => {
-  const nomeAreaMentorado = req.body.nome_area_mentorado;
-
-
-  const params = [
-    req.body.id,
-    req.body.nomeAreaMentorado
-  ];
-
-  const query = `
-    INSERT INTO mentorado (nome_area_mentorado) VALUES (?);`;
-
-  db.query(query, params, (err, results) => {
-    if (err) {
-      console.error(err);
-      return res.status(400).json({ success: false, message: "Erro ao salvar no banco", data: err });
-    }
-
-    res.status(201).json({ success: true, message: "Carro cadastrado com sucesso!", data: results });
-  });
-});
 
 // ========================
 // Inicialização do servidor

@@ -1,6 +1,3 @@
-// Captura o clique do botão
-document.getElementById('btn-cadastrar').addEventListener('click', cadastrar);{
-
 
 
 // Função para cadastrar usuário
@@ -9,8 +6,17 @@ async function cadastrar() {
   const email = document.getElementById('input-email').value.trim();
   const dataNasc = document.getElementById('input-data').value;
   const senha = document.getElementById('input-senha').value.trim(); //importante tirar os espaços das senhas
+  const nomeAreaMentorar = document.getElementById('select-mentorar').value;
+  const nomeAreaMentorado = document.getElementById('select-mentorado').value;
 
 
+
+console.log('Nome:', nome);
+console.log('Email:', email);
+console.log('Data de Nascimento:', dataNasc);
+console.log('Senha:', senha);
+console.log('Mentorado em:', nomeAreaMentorado);
+console.log('Mentorar em:', nomeAreaMentorar);
 
 
 
@@ -28,15 +34,15 @@ async function cadastrar() {
     console.error("Erro no fetch:", err);
     document.getElementById('msg').innerText = 'Erro no cadastro.';
   }
-}
+
 
 try {
-  const mentorar = document.getElementById('select-mentorar').value;
+ 
   
   const response = await fetch('http://localhost:3000/registerMentorar', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({mentorar})
+    body: JSON.stringify({nomeAreaMentorar})
   });
 
   const data = await response.json();
@@ -47,11 +53,11 @@ try {
   document.getElementById('msg').innerText = 'Erro no cadastro.';
 }
 try {
-  const mentorado = document.getElementById('select-mentorado').value;
+  
   const response = await fetch('http://localhost:3000/registerMentorado', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({mentorado})
+    body: JSON.stringify({nomeAreaMentorado})
   });
 
   const data = await response.json();
@@ -62,7 +68,7 @@ try {
   document.getElementById('msg').innerText = 'Erro no cadastro.';
 }
 
-
+}
 
 // Função para login de usuário
 async function login() {
@@ -84,5 +90,3 @@ async function login() {
     document.getElementById('msg').innerText = 'Erro no login';
   }
 }
-
-};
