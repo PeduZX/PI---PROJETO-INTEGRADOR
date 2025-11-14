@@ -21,16 +21,16 @@ CREATE TABLE users (
 
 CREATE TABLE mentorar (	
   id_area_mentorar INT  PRIMARY KEY AUTO_INCREMENT,
-  nome_area_mentorar VARCHAR(100) NOT NULL,
-  users_id INT NOT NULL,
+  nomeAreaMentorar VARCHAR(100) NOT NULL,
+  users_id INT,
 	FOREIGN KEY (users_id) REFERENCES users (id)
 );
 
 
 CREATE TABLE mentorado (
   id_area_mentorado INT  PRIMARY KEY AUTO_INCREMENT,
-  nome_area_mentorado VARCHAR(100) NOT NULL,
-  users_id INT NOT NULL,
+  nomeAreaMentorado VARCHAR(100) NOT NULL,
+  users_id INT ,
     FOREIGN KEY (users_id) REFERENCES users (id)
 );
 
@@ -49,6 +49,9 @@ SELECT * FROM users;
 SELECT * FROM mentorar;
 SELECT * FROM mentorado;
 
+
+DROP TABLE mentorado;
+DROP TABLE mentorar;
 drop database bancoPI;
 
 
@@ -57,6 +60,7 @@ drop database bancoPI;
 
 
 <img width="500" height="45" alt="image" src="https://github.com/user-attachments/assets/68c28440-aca2-429a-90da-c87dd13f6b27" />
+
 
 
 
