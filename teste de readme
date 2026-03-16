@@ -22,7 +22,7 @@ A aplicação permite cadastro de usuários, definição de áreas de mentoria e
 Execute o comando abaixo para instalar as dependências do projeto:
 
 ```bash
-npm install express nodemon dotenv bcrypt mysql2 cors
+npm install express nodemon dotenv bcrypt multer mysql2 cors
 ```
 
 ---
