@@ -148,22 +148,12 @@ DB_NAME=bancoPI
 Instale as dependências:
 
 ```
-npm install
+npm install express nodemon bcrypt multer dotenv mysql2 cors
 ```
 
 Execute o servidor:
+npm start
 
-```
-npx nodemon
-```
-
-ou
-
-```
-npm run dev
-```
-
----
 
 # 📌 Funcionalidades
 
