@@ -11,61 +11,78 @@
 </head>
 
 <body>
-    <header>
-    <img class="logo" src="/logo/logo.png" alt="logo" />
-    <div id="div-menu-line" class="div-menu-line">
-      <i id="barra-nav" class="ri-menu-line"></i>
-      </div>
-      <div id="div-close" class="div-close">
-        <i id="close-nav" class="ri-close-line"></i>
-      </div>
-    
-    <nav id="nav-header" class="nav-header">
-      <ul id="ul-nav">
-        <li class="li-nav"><a href="index.html"><i id="i-nav" class="ri-home-2-line"></i>HOME</a></li>
-        <li class="li-nav"><a href="sobre.html"><i id="i-nav" class="ri-file-marked-line"></i>SOBRE PROJETO</a></li>
-        <li class="li-nav"><a href="forum.html"><i id="i-nav" class="ri-question-answer-fill"></i>CHAT</a></li>
-        <li class="li-nav"><a href="contato.html"><i id="i-nav" class="ri-phone-line"></i>CONTATO</a></li>
-        <li class="li-nav"><a href="ranking.html"><i id="i-nav" class="ri-trophy-line"></i>RANKING</a></li>
-        <li class="li-nav"><a href="perfil.html"><i id="i-nav" class="ri-user-line"></i>PERFIL</a></li>
-      </ul>
-    </nav>
-  </header>
   <main>
     <div id="container">
+      <div class="aside-left">
+        <div id="msg-aside-left">
+          <h2 id="h2-hive-left">HIVE STUDY CLUB</h2>
+          <div class="div-mid-h1-left">
+            <h1 class="h1-mid-left">Bem-vindo</h1>
+            <h1 id="h1-down-left" class="h1-mid-left">de volta!</h1>
+          </div>
+          <div class="div-h3-left">
+            <h3>
+              Continue sua jornada de aprendizado. Seus mentores e mentorados estão esperando por você.
+            </h3>
+          </div>
+        </div>
+        <span class="span-line"></span>
+        <div class="li-left-aside">
+          <ul>
+            <li>Mentoria personalizada por área</li>
+            <li>Seja mentor e mentorado ao mesmo tempo</li>
+            <li>Comunidade ativa de estudantes</li>
+            <li>Acesso gratuito para começar</li>
+          </ul>
+        </div>
+      </div>
+
       <div id="container-form">
-        <h2 style="text-align: center;">Login</h2>
+        <div class="badge-acesso">
+          <span class="badge-icon">→</span>
+          Acesso à sua conta
+        </div>
+        <div class="msg-login-form">
+        <h2 class="form-title">Entrar</h2>
+        <h4 class="form-sub">Insira seus dados para continuar</h4>
+        </div>
         <form>
-          <label for="">Email:</label>
-          <input id="input-email" type="text" placeholder="Email">
-          <label for="">Senha:</label>
-          <input  id="input-senha" type="password" placeholder="Ex: 1234">
-          <button onclick="login()" id="btn-cadastrar" type="button">Login</button>
-          <a id="a-login" href="cadastrar.html">Não Tenho Conta</a>
+          <label for="input-email">Email:</label>
+          <input id="input-email" type="text" placeholder="seu@gmail.com">
+
+          <label for="input-senha">Senha:</label>
+          <div class="pass-wrap">
+            <input id="input-senha" type="password" placeholder="Sua senha" />
+            <button class="eye-btn" type="button" onclick="toggleSenha()">
+              <i class="ri-eye-line" id="eye-icon"></i>
+            </button>
+          </div>
+
+          <button onclick="login()" id="btn-cadastrar" type="button">Entrar</button>
+
+          <div class="register-link">
+            Não tem conta?
+            <a id="a-login" href="cadastrar.html">Cadastre-se grátis</a>
+          </div>
           <p style="text-align: center;" id="msg"></p>
-       
         </form>
       </div>
     </div>
-
-    </div>
   </main>
-  <footer>
-    <div id="links-footer">
-      <a href="#" class="a-footer">Login</a>
-      <a href="#" class="a-footer">Sobre</a>
-      <a href="#" class="a-footer">Suporte</a>
-    </div>
-    <div id="footer-copy">
-      <p>copright.com</p>
-    </div>
-    <div id="div-icon-footer">
-      <i id="icons-footer" class="ri-linkedin-box-line"></i>
-      <i id="icons-footer" class="ri-github-fill"></i>
-      <i id="icons-footer" class="ri-mail-line"></i>
-    </div>
-  </footer>
-    <script src="/JS_NAVBAR/script.js"></script>
-    <script src="/cadastro/js-cadastro/script.js"></script>
+
+  <script>
+    function toggleSenha() {
+      const input = document.getElementById('input-senha');
+      const icon = document.getElementById('eye-icon');
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.replace('ri-eye-off-line', 'ri-eye-line');
+      } else {
+        input.type = 'password';
+        icon.classList.replace('ri-eye-line', 'ri-eye-off-line');
+      }
+    }
+  </script>
+  <script src="/cadastro/js-cadastro/script.js"></script>
 </body>
 </html>
