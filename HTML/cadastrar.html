@@ -69,16 +69,20 @@
                   <label for="">Ser Mentorado em:</label>
                   <select id="select-mentorado" class="select-area">
                     <option value="Ciencias Humanas">Ciências Humanas</option>
-                    <option value="Ciencias Da natureza">Ciências da Natureza</option>
+                    <option value="Ciencias Da natureza">
+                      Ciências da Natureza
+                    </option>
                     <option value="Linguagens">Linguagens</option>
                     <option value="Exatas">Exatas</option>
                   </select>
                 </div>
                 <div class="insideMentorar">
                   <label for="">Mentorar em:</label>
-                  <select id="select-mentorar" class="select-area" >
+                  <select id="select-mentorar" class="select-area">
                     <option value="Ciencias Humanas">Ciências Humanas</option>
-                    <option value="Ciencias Da natureza">Ciências da Natureza</option>
+                    <option value="Ciencias Da natureza">
+                      Ciências da Natureza
+                    </option>
                     <option value="Linguagens">Linguagens</option>
                     <option value="Exatas">Exatas</option>
                   </select>
@@ -100,17 +104,32 @@
     </main>
 
     <script>
-      function toggleSenha() {
-        const input = document.getElementById('input-senha');
-        const icon = document.getElementById('eye-icon');
-        if (input.type === 'password') {
-          input.type = 'text';
-          icon.classList.replace('ri-eye-off-line', 'ri-eye-line');
-        } else {
-          input.type = 'password';
-          icon.classList.replace('ri-eye-line', 'ri-eye-off-line');
-        }
-      }
+            function toggleSenha() {
+              const input = document.getElementById('input-senha');
+              const icon = document.getElementById('eye-icon');
+              if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.replace('ri-eye-off-line', 'ri-eye-line');
+              } else {
+                input.type = 'password';
+                icon.classList.replace('ri-eye-line', 'ri-eye-off-line');
+              }
+            }
+
+function showContent() {
+  const container = document.getElementById('container');
+
+  const windowHeight = window.innerHeight;
+  const elementTop = container.getBoundingClientRect().top;
+  const visible = 50;
+
+  if (elementTop < windowHeight - visible) {
+    container.classList.add('active');
+  }
+}
+
+window.addEventListener('load', showContent);
+window.addEventListener('scroll', showContent);
     </script>
     <script src="/cadastro/js-cadastro/script.js"></script>
   </body>

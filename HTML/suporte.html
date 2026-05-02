@@ -3,17 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HOME</title>
+    <title>Suporte — Hive Study Club</title>
     <link rel="stylesheet" href="/CSS/suporte.css" />
     <link rel="icon" type="image/png" href="/logo/logo.png" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
   </head>
-
   <body>
-       <!-- HEADER -->
+
+    <!-- HEADER -->
     <header id="top-header">
       <div class="header-wrapper">
         <a href="index.html" class="brand-link">
@@ -36,27 +34,112 @@
           <li><a href="index.html"><i class="ri-home-2-line"></i><span>HOME</span></a></li>
           <li><a href="sobre.html"><i class="ri-file-marked-line"></i><span>SOBRE PROJETO</span></a></li>
           <li><a href="chatConversa.html"><i class="ri-question-answer-fill"></i><span>CHAT</span></a></li>
-          <li><a href="contato.html"><i class="ri-phone-line"></i><span>CONTATO</span></a></li>
+          <li><a href="suporte.html"><i class="ri-phone-line"></i><span>SUPORTE</span></a></li>>
           <li><a href="ranking.html"><i class="ri-trophy-line"></i><span>RANKING</span></a></li>
           <li><a href="perfil.html"><i class="ri-user-line"></i><span>PERFIL</span></a></li>
         </ul>
         <a href="cadastrar.html" class="signup-btn-menu">CADASTRE-SE</a>
       </nav>
     </header>
+
     <main>
-        <div id="div-p-title">
-      <p class="main-title">Está Com problemas?</p>
-      <p class="main-title">Contate-nos!</p>
-      </div>
-      <div id="div-input">
-        <form action="">
-      <input type="email" placeholder="Email">
-      <input type="text" placeholder="Deixe sua comentario">
-      <button class="btn-enviar">Enviar!</button>
-      </form>
-      </div>
+
+      <!-- BLOBS decorativos -->
+      <div class="bg-blob bg-blob--purple"></div>
+      <div class="bg-blob bg-blob--yellow"></div>
+
+      <!-- Seção de contato -->
+      <section class="support-section">
+
+        <!-- Lado esquerdo: texto + info cards -->
+        <div class="support-info">
+          <div class="support-tag"><i class="ri-customer-service-2-line"></i> Suporte</div>
+          <h1 class="support-title">
+            Está com<br />
+            <span class="title-highlight">problemas?</span>
+          </h1>
+          <p class="support-description">
+            Nossa equipe está pronta para te ajudar. Preencha o formulário ao lado e entraremos em contato o mais breve possível.
+          </p>
+
+          <div class="contact-cards">
+            <div class="contact-card">
+              <div class="contact-card-icon"><i class="ri-mail-line"></i></div>
+              <div>
+                <span class="contact-card-label">E-mail</span>
+                <span class="contact-card-value">suporte@hivestudy.com</span>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-card-icon"><i class="ri-time-line"></i></div>
+              <div>
+                <span class="contact-card-label">Horário</span>
+                <span class="contact-card-value">Seg–Sex, 9h às 18h</span>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-card-icon"><i class="ri-question-answer-line"></i></div>
+              <div>
+                <span class="contact-card-label">Resposta média</span>
+                <span class="contact-card-value">Até 24 horas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lado direito: formulário -->
+        <div class="support-form-wrap">
+          <form class="support-form" id="supportForm">
+
+            <div class="form-group">
+              <label for="input-name">Nome</label>
+              <div class="input-wrap">
+                <i class="ri-user-line"></i>
+                <input type="text" id="input-name" placeholder="Seu nome completo" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="input-email">E-mail</label>
+              <div class="input-wrap">
+                <i class="ri-mail-line"></i>
+                <input type="email" id="input-email" placeholder="seu@email.com" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="input-subject">Assunto</label>
+              <div class="input-wrap">
+                <i class="ri-file-text-line"></i>
+                <input type="text" id="input-subject" placeholder="Descreva o assunto brevemente" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="input-message">Mensagem</label>
+              <div class="input-wrap input-wrap--textarea">
+                <i class="ri-chat-3-line"></i>
+                <textarea id="input-message" placeholder="Descreva seu problema em detalhes..." rows="5" required></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              Enviar mensagem <i class="ri-send-plane-line"></i>
+            </button>
+
+            <!-- Feedback de envio -->
+            <div class="form-success" id="formSuccess">
+              <i class="ri-checkbox-circle-line"></i>
+              Mensagem enviada! Em breve entraremos em contato.
+            </div>
+
+          </form>
+        </div>
+
+      </section>
     </main>
-     <!-- FOOTER -->
+
+    <!-- FOOTER -->
     <footer id="site-footer">
       <div class="footer-links">
         <a href="login.html">Login</a>
@@ -70,6 +153,18 @@
         <a href="#" aria-label="E-mail"><i class="ri-mail-line"></i></a>
       </div>
     </footer>
-    <script src="/JS_NAVBAR/script.js"></script>
+
+    <script>
+      // Form submit feedback
+      document.getElementById('supportForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('formSuccess').classList.add('is-visible');
+        this.reset();
+        setTimeout(() => {
+          document.getElementById('formSuccess').classList.remove('is-visible');
+        }, 4000);
+      });
+    </script>
+      <script src="/JS_NAVBAR/script.js"></script>
   </body>
 </html>

@@ -137,7 +137,7 @@ Crie um arquivo `.env` na raiz do projeto:
 ```
 DB_HOST=localhost
 DB_USER=root
-DB_PASSWORD=sua_senha
+DB_PASSWORD=root
 DB_NAME=bancoPI
 ```
 

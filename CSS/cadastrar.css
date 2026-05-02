@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
+  font-family: "Arimo", sans-serif;
 }
 
 body {
@@ -54,7 +54,16 @@ main {
   align-items: center;
   gap: 10vw;
   padding: 48px;
-  width: 100%;
+  width: 100%; 
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+
+#container.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ── ASIDE ESQUERDO ── */
