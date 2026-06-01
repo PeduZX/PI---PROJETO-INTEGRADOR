@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
   </head>
-
+ 
   <body>
     <main>
       <div id="container">
@@ -39,21 +39,21 @@
             </ul>
           </div>
         </div>
-
+ 
         <div id="container-form">
           <form>
             <h2>Criar conta</h2>
             <h4>Preencha os dados abaixo para se cadastra</h4>
-
+ 
             <label for="">Nome:</label>
             <input id="input-nome" type="text" placeholder="Nome" />
-
+ 
             <label for="">Email:</label>
             <input id="input-email" type="text" placeholder="Email" />
-
+ 
             <label for="">Data De Nascimento:</label>
             <input id="input-data" type="date" placeholder="dd/mm/aaaa" />
-
+ 
             <label for="input-senha">Senha:</label>
             <div class="pass-wrap">
               <input id="input-senha" type="password" placeholder="Ex: 1234" />
@@ -61,13 +61,14 @@
                 <i class="ri-eye-line" id="eye-icon"></i>
               </button>
             </div>
-
+ 
             <div class="areas-mentoria">
-              <h2 class="h2-areas-mentoria">Mentoria</h2>
+              <h2 class="h2-areas-mentoria">Mentoria / Prefêrencia</h2>
               <div class="mentoria-grid">
                 <div class="insideMentorado">
                   <label for="">Ser Mentorado em:</label>
                   <select id="select-mentorado" class="select-area">
+                    <option selected disabled >Selecione uma área</option>
                     <option value="Ciencias Humanas">Ciências Humanas</option>
                     <option value="Ciencias Da natureza">
                       Ciências da Natureza
@@ -79,6 +80,7 @@
                 <div class="insideMentorar">
                   <label for="">Mentorar em:</label>
                   <select id="select-mentorar" class="select-area">
+                    <option selected disabled>Selecione uma área</option>
                     <option value="Ciencias Humanas">Ciências Humanas</option>
                     <option value="Ciencias Da natureza">
                       Ciências da Natureza
@@ -89,7 +91,7 @@
                 </div>
               </div>
             </div>
-
+ 
             <button onclick="cadastrar()" id="btn-cadastrar" type="button">
               Cadastrar
             </button>
@@ -102,7 +104,7 @@
         </div>
       </div>
     </main>
-
+ 
     <script>
             function toggleSenha() {
               const input = document.getElementById('input-senha');
@@ -115,22 +117,23 @@
                 icon.classList.replace('ri-eye-line', 'ri-eye-off-line');
               }
             }
-
+ 
 function showContent() {
   const container = document.getElementById('container');
-
+ 
   const windowHeight = window.innerHeight;
   const elementTop = container.getBoundingClientRect().top;
   const visible = 50;
-
+ 
   if (elementTop < windowHeight - visible) {
     container.classList.add('active');
   }
 }
-
+ 
 window.addEventListener('load', showContent);
 window.addEventListener('scroll', showContent);
     </script>
     <script src="/cadastro/js-cadastro/script.js"></script>
   </body>
 </html>
+ 

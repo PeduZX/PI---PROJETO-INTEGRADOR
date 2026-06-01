@@ -2,6 +2,7 @@
 
 <img width="1048" height="270" alt="image" src="https://github.com/user-attachments/assets/28f52369-cb2e-48c4-98b8-b12d582a0c8d" />
 
+## npm i express nodemon dotenv multer bcrypt jsonwebtoken mysql2 cors
 
 
 

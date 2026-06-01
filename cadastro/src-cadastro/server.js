@@ -1,82 +1,74 @@
-const express = require('express');
-const bcrypt = require('bcrypt');
+const express = require("express");
+const bcrypt = require("bcrypt");
 const db = require("./db_config");
-const cors = require('cors');
-const path = require('path');
+const cors = require("cors");
+const path = require("path");
 
 const app = express();
 app.use(cors());
-app.use(express.json()); 
+app.use(express.json());
 
 // Middlewares
-app.use(express.static('public'));
-app.use(cors());
-
+app.use(express.static("public"));
 
 // ========================
 // Rota de cadastro
 // ========================
-app.post('/register',(req, res) => {
-  const { nome, email, dataNasc,senha} = req.body;
+app.post("/register", (req, res) => {
+  const { nome, email, dataNasc, senha } = req.body;
 
   bcrypt.hash(senha, 10, (err, hash) => {
-    if (err){
-       res.status(500).json({ error: 'Erro ao criptografar senha' });
-       return;
-    }
+    if (err)
+      return res.status(500).json({ error: "Erro ao criptografar senha" });
 
-    const sql = 'INSERT INTO users (nome, email, data_nasc,senha) VALUES (?, ?, ?, ?)';
-    db.query(sql, [nome, email, dataNasc ,hash], (err) => {
-      if (err) {
-        res.status(500).json({ error: 'Erro ao cadastrar usuário' });
-        return;
-        }   
-        res.status(201).json({ message: 'Usuário cadastrado com sucesso!' });
+    const sql =
+      "INSERT INTO users (nome, email, data_nasc, senha) VALUES (?, ?, ?, ?)";
+    db.query(sql, [nome, email, dataNasc, hash], (err, result) => {
+      if (err)
+        return res.status(500).json({ error: "Erro ao cadastrar usuário" });
+
+      res
+        .status(201)
+        .json({
+          message: "Usuário cadastrado com sucesso!",
+          userId: result.insertId,
+        });
     });
   });
 });
 
-
 // ========================
-// Rota de cadastro tabela mentorado
+// Rota de cadastro tabela funcoesUser
 // ========================
-app.post("/registerMentorado", (req, res) => {
-  const {nomeAreaMentorado} = req.body;
+app.post("/registerAreas", (req, res) => {
+  const { nomeAreaMentorado, nomeAreaMentorar, users_id } = req.body;
 
-    // console.log(nomeAreaMentorado); só para teste
+  const query =
+    "INSERT INTO funcoesUser (nomeAreaMentorar, nomeAreaMentorado, users_id) VALUES (?, ?, ?)";
+  db.query(
+    query,
+    [nomeAreaMentorar, nomeAreaMentorado, users_id],
+    (err, results) => {
+      if (err) {
+        console.error(err);
+        return res
+          .status(400)
+          .json({
+            success: false,
+            message: "Erro ao salvar no banco",
+            data: err,
+          });
+      }
 
-  const query = `
-    INSERT INTO mentorado (nomeAreaMentorado) VALUES (?)`;
-
-  db.query(query, [nomeAreaMentorado], (err, results) => {
-    if (err) {
-      console.error(err);
-      return res.status(400).json({ success: false, message: "Erro ao salvar no banco", data: err });
-    }
-
-    res.status(201).json({ success: true, message: "Usuario cadastrado com sucesso!", data: results });
-  });
-});
-
-// ========================
-// Rota de cadastro tabela mentorar
-// ========================
-app.post("/registerMentorar", (req, res) => {
-  const {nomeAreaMentorar} = req.body;
- 
-  //console.log(nomeAreaMentorar); só para teste
-
-  const query = `
-    INSERT INTO mentorar (nomeAreaMentorar) VALUES (?)`;
-
-  db.query(query, [nomeAreaMentorar], (err, results) => {
-    if (err) {
-      console.error(err);
-      return res.status(400).json({ success: false, message: "Erro ao salvar no banco", data: err });
-    }
-
-    res.status(201).json({ success: true, message: "Usuario cadastrado com sucesso!", data: results });
-  });
+      res
+        .status(201)
+        .json({
+          success: true,
+          message: "Usuário cadastrado com sucesso!",
+          data: results,
+        });
+    },
+  );
 });
 
 // ========================
@@ -98,14 +90,29 @@ app.post("/login", (req, res) => {
         return res.status(500).json({ error: "Erro ao verificar senha" });
       if (!match) return res.status(401).json({ error: "Senha incorreta" });
 
-      res.json({ message: "Login realizado com sucesso!" });
-
+      res.json({ message: "Login realizado com sucesso!", userId: user.id });
     });
   });
 });
 
 
+// ========================
+// Rota de editar usuário
+// ========================
 
+app.put("/editarUser/:id", (req, res) => {
+  const { inputNome, inputSenha } = req.body;
+  const userId = req.params.id;
+
+  const query = "UPDATE users SET nome = ?, senha = ? WHERE id = ?";
+  db.query(query, [inputNome, inputSenha, userId], (err, results) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ error: "Erro ao editar usuário" });
+    }
+    res.json({ message: "Usuário editado com sucesso!" });
+  });
+});
 
 // ========================
 // Inicialização do servidor

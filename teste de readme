@@ -31,71 +31,53 @@ npm install express nodemon dotenv bcrypt multer mysql2 cors
 
 ## Criar Banco
 
-```sql
 CREATE DATABASE bancoPI;
 USE bancoPI;
-```
 
----
-
-# 👤 Tabela `users`
-
-Armazena os usuários cadastrados no sistema.
-
-```sql
 CREATE TABLE users (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  nome VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  data_nasc DATE NOT NULL,
-  senha VARCHAR(255) NOT NULL,
-  pontos INT DEFAULT 0
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    data_nasc DATE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    pontos INT DEFAULT 0
 );
-```
 
----
+CREATE TABLE funcoesUser (
+    id_area_mentorar INT PRIMARY KEY AUTO_INCREMENT,
+    nomeAreaMentorar VARCHAR(100) NOT NULL,
+    nomeAreaMentorado VARCHAR(100) NOT NULL,
+    users_id INT,
 
-# 🧑‍🏫 Tabela `mentorar`
-
-Armazena as áreas em que o usuário pode oferecer mentoria.
-
-```sql
-CREATE TABLE mentorar (	
-  id_area_mentorar INT PRIMARY KEY AUTO_INCREMENT,
-  nomeAreaMentorar VARCHAR(100) NOT NULL,
-  users_id INT,
-  FOREIGN KEY (users_id) REFERENCES users(id)
+    FOREIGN KEY (users_id)
+        REFERENCES users(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
-```
 
----
+CREATE TABLE mensagensForum (
+    id_mensagem INT PRIMARY KEY AUTO_INCREMENT,
+    texto TEXT NOT NULL,
+    data_envio DATETIME DEFAULT CURRENT_TIMESTAMP,
+    users_id INT NOT NULL,
+    sala VARCHAR(100) NOT NULL,
+    imagem_url VARCHAR(255),
 
-# 🎓 Tabela `mentorado`
-
-Armazena as áreas em que o usuário deseja receber mentoria.
-
-```sql
-CREATE TABLE mentorado (
-  id_area_mentorado INT PRIMARY KEY AUTO_INCREMENT,
-  nomeAreaMentorado VARCHAR(100) NOT NULL,
-  users_id INT,
-  FOREIGN KEY (users_id) REFERENCES users(id)
+    FOREIGN KEY (users_id)
+        REFERENCES users(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
-```
 
----
 
-# 💬 Tabela `mensagens`
 
-Armazena as mensagens enviadas pelos usuários.
+SELECT * FROM users;
+SELECT * FROM funcoesUser;
 
-```sql
-CREATE TABLE mensagens (
-  id_mensagens INT PRIMARY KEY NOT NULL,
-  data_envio DATETIME NOT NULL,
-  users_id INT NOT NULL,
-  FOREIGN KEY (users_id) REFERENCES users(id)
-);
+
+
+DROP DATABASE bancoPI;
+
 ```
 
 ---
